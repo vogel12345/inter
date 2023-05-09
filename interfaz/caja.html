@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LOTUSCAR</title>
+	<link rel="stylesheet" type="text/css" href="dashboard.css">
+</head>
+<body>
+    <div class="header">
+        <img src="./logo2.png" alt="Portada" style="width: 6%; height: 6%; margin-left: 60px;">
+        <h1>DATA ADMINISTRATOR LOTUSCAR</h1>
+        <div class="button-container">
+			<button class="download-button" onclick="location.href='index.html'">Salir</button>
+		</div>
+    </div>
+    <br>
+	<div class="container">
+		<div class="sidebar">
+			<ul>
+				<br>
+				<h2>---Opciones---</h2>
+				<br>
+				<li><a href="index2.html" class="button">Hora Vista Anuncios</a></li>
+                <br>
+				<li><a href="fechaver.html" class="button">Fecha Vista Anuncios</a></li>
+                <br>
+				<li><a href="prueba.html" class="button">Prueba</a></li>
+                <br>
+				<li><a href="vehiculo.html" class="button">Tipo de Vehiculo</a></li>
+                <br>
+				<li><a href="caja.html" class="button">Caja de Cambio</a></li>
+                <br>
+                <li><a href="power.html" class="button">Power PS</a></li>
+                <br>
+				<li><a href="modelo.html" class="button">Modelo</a></li>
+                <br>
+				<li><a href="kilometraje.html" class="button">Kilometraje</a></li>
+                <br>
+				<li><a href="gasolina.html" class="button">Tipo de Gasolina</a></li>
+                <br>
+                <li><a href="marca.html" class="button">Marca</a></li>
+                <br>
+				<li><a href="codigo.html" class="button">Codigo Postal</a></li>
+                <br>
+			</ul>
+		</div>
+
+		<div class="main-content">
+			<div class="panel">
+				<h2>Numero de carros usados por su caja cambio</h2>
+				<div class="graph">
+					<img src="caja1.png" alt="hora">	
+				</div>
+				<div class="stats">
+					<p class="value"> La cantidad de carros fue de: 371,527</p>
+					<p class="percent">+21.4% respecto al mes anterior</p>
+				</div>
+			</div>
+
+			<div class="panel">
+				<h2>Numero de carros usados por su caja automatica</h2>
+				<div class="graph">
+					<img class="graph zoomable" src="caja3.png" alt="Hora 2">
+				</div>
+				<div class="stats">
+					<p class="value">La cantidad de carros fue de: 81,665</p>
+					<p class="percent">+3.6% respecto al mes anterior</p>
+				</div>
+			</div>
+<br>
+<br>
+<br>
+			<div class="panel">
+				<h2>Numero de carros usados por su caja control</h2>
+				<div class="graph">
+					<img class="graph zoomable" src="caja6.png" alt="Hora 2">
+				</div>
+				<div class="stats">
+					<p class="value">La cantidad de carros fue de: 289,863</p>
+					<p class="percent">+3.2% respecto al mes anterior</p>
+				</div>
+			</div>
+
+			<div class="panel">
+				<h2>Porcentaje de carros usados por su caja </h2>
+				<div class="graph">
+					<img class="graph zoomable" src="caja2.png" alt="Hora 2">
+				</div>
+				<div class="stats">
+					<p class="value">El mayor porcentaje fue de: manual </p>
+					<p class="percent">+5.6% respecto al mes anterior</p>
+				</div>
+			</div>
+<br>
+<br>
+<br>
+			<div class="panel">
+				<h2>Que tipo de carro usa más manual</h2>
+				<div class="graph">
+					<img class="graph zoomable" src="caja5.png" alt="Hora 2">
+				</div>
+				<div class="stats">
+					<p class="value">Es el tipo: Limousine</p>
+					<p class="percent">+0.2% respecto al mes anterior</p>
+				</div>
+			</div>
+
+			<div class="panel">
+				<h2>Que tipo de carro usa menos automatico </h2>
+				<div class="graph">
+					<img class="graph zoomable" src="caja5.png" alt="Hora 2">
+				</div>
+				<div class="stats">
+					<p class="value">Es el tipo: Andere</p>
+					<p class="percent">+55.8% respecto al mes anterior</p>
+				</div>
+			</div>
+<br>
+<br>
+<br>
+	<script>
+		var graph = document.querySelector('.graph');
+		var image = graph.querySelector('img');
+
+		graph.addEventListener('click', function() {
+		image.classList.toggle('zoomed');
+		});
+	</script>
+
+	<script>
+		// Selecciona todas las imágenes con la clase "zoomable"
+		const images = document.querySelectorAll(".zoomable");
+
+		// Agrega un evento "click" a cada imagen
+		images.forEach(image => {
+		image.addEventListener("click", function() {
+			// Cambia la clase CSS de la imagen para hacer zoom
+			this.classList.toggle("zoomed");
+		});
+		});
+	</script>
+
+	<script>
+		// Selecciona la imagen
+		const img = document.querySelector('#rango-img');
+
+		// Agrega un event listener para el clic
+		img.addEventListener('click', () => {
+			// Agrega o remueve la clase "zoomed" en la imagen
+			img.classList.toggle('zoomed');
+		});
+	</script>
+
+	<script>
+		const images = document.querySelectorAll('.graph3 img, .graph4 img');
+		images.forEach(image => {
+		image.addEventListener('click', () => {
+			image.classList.toggle('zoomed');
+		});
+		});
+  </script>
+
+	<script>
+		const imagesss = document.querySelectorAll('.graph4 img');
+		imagesss.forEach(image => {
+		image.addEventListener('click', () => {
+			image.classList.toggle('zoomed');
+		});
+		});
+	</script>
+
+	<footer>
+		<p>Derechos Reservados - LOTUSCAR</p>
+	</footer>
+</body>
+</html>
+

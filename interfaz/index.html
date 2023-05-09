@@ -1,0 +1,202 @@
+<html>
+<head>
+    <title>LOTUSCAR</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        h1 {
+            text-align: center;
+            font-size: 60px;
+            font-weight: bold;
+            color: white;
+        }
+        h3{
+            text-align: center;
+            font-size: 38px;
+            font-weight: bold;
+            color: white;
+        }
+        button {
+            display: block;
+            margin: 50 auto;
+            background-color: white;
+            color: black;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .image-container {
+            text-align: center;
+            background-color: white;
+            padding: 10px;
+            margin: 0 auto;
+            width: 20%;
+            height: 150px;
+            border-radius: 5px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image-container {
+          text-align: center;
+          background-color: white;
+          padding: 10px;
+          margin: 0 auto;
+          width: 29%;
+          height: 150px;
+          border-radius: 5px;
+        }
+
+        .image-container p.upload-message {
+          background-color: green;
+          color: white;
+          padding: 10px;
+          border-radius: 5px;
+        }
+
+        .image-container.uploaded {
+          background-color: #e6ffe6;
+        }
+
+        .image-container.uploaded p.upload-message {
+          background-color: chartreuse;
+        }
+    
+        .banner {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        .banner-left {
+            left: 105;
+        }
+        .banner-right {
+            right: 105;
+        }
+        .banner img {
+            background-color: white;
+            padding: 10px;
+            margin: 0 auto;
+            border-radius: 5px;
+            display: block;
+            margin: 10px auto;
+            max-width: 100%;
+            height: auto;
+            width: 100%;
+        }
+
+        .upload-label {
+          display: inline-block;
+          padding: 20px;
+          background-color: #f2f2f2;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-size: 20px;
+        }
+
+        input[type="file"] {
+            font-size: 18px; /* Ajustar el tamaño de la letra */
+            padding: 10px; /* Ajustar el relleno del botón */
+        }
+
+        .upload-label:hover {
+          background-color: #ddd;
+          border-color: #999;
+        }
+
+        label {
+        font-size: 25px;
+      }
+
+      .success {
+        background-color: green;
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+      }
+
+      #message {
+        font-size: 25px;
+      }
+
+      
+
+    </style>
+</head>
+<body>
+  <h1>- - - - LOTUSCAR - - - - </h1>
+  <h3>- DATA SET ADMINISTRATOR -</h3>
+  <div class="banner banner-left">
+      <img src="cars.jpg" alt="Descripción de la imagen 1">
+      <img src="cars2.png" alt="Descripción de la imagen 2">
+      <img src="cars3.png" alt="Descripción de la imagen 3">
+  </div>
+  <div class="banner banner-right">
+      <img src="cars4.png" alt="Descripción de la imagen 5">
+      <img src="cars5.png" alt="Descripción de la imagen 6">
+      <img src="cars6.png" alt="Descripción de la imagen 7">
+  </div>
+  <div class="image-container">
+      <form>
+          <label>- - - Subir archivo CSV - - -</label>
+          <br>
+          <br>
+          <input type="file" id="csv-file" name="csv-file">
+      </form>
+      <p id="message"></p>
+  </div>
+  <button id="ingresa" onclick="redirect()">Ingresar</button>
+
+  <button id="limpia" onclick="location.href='index.html'">Limpiar y subir otro CSV </button>
+
+  <script>
+      let uploaded = false;
+      document.getElementById("csv-file").addEventListener("change", handleFileSelect);
+    
+      function handleFileSelect(event) {
+        const file = event.target.files[0];
+        if (!file.name.endsWith('.csv')) {
+          console.log('Archivo incorrecto');
+          document.getElementById('message').innerHTML = 'Archivo incorrecto';
+          document.querySelector('.image-container').style.backgroundColor = 'red';
+          uploaded = false;
+          return;
+        }
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const contents = event.target.result;
+          console.log('Archivo subido');
+          document.getElementById('message').innerHTML = 'Archivo subido correctamente!!!';
+          document.querySelector('.image-container').classList.add('uploaded');
+          uploaded = true;
+        };
+        reader.readAsText(file);
+      }
+
+      function redirect() {
+        if (uploaded) {
+          window.location.href = 'index2.html';
+        } else {
+          alert('Por favor, sube un archivo CSV');
+        }
+      }
+  </script>
+
+  <script>
+      document.getElementById("boton-cerrar").addEventListener("click", function() {
+        window.close();
+      });
+  </script>
+  
+</body>
+
+
